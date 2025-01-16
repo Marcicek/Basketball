@@ -63,7 +63,7 @@ namespace LeaderboardCreatorEditor
             operation.completed += _ =>
             {
                 if (request.responseCode != 200) return;
-                var response = request.downloadHandler.text;
+                    var response = request.downloadHandler.text;
                 if (response == VERSION)
                 {
                     Log("<color=green><b>Leaderboard Creator is up to date!</b></color>");

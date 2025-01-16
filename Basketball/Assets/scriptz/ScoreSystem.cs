@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using LootLocker.Requests;
+// using LootLocker.Requests;
 
 public class ScoreSystem : MonoBehaviour
 {
-    public Lboard leaderboard;
+    public Leaderboard leaderboard;
     public TMP_Text scoreText;
     public Transform hoop; 
     public Transform character;
@@ -20,31 +20,22 @@ public class ScoreSystem : MonoBehaviour
         StopRoutine();
     }
 
-    public void scored()
+    public void Scored()
     {
         if (Time.time - lastScoreTime < 0.5f) 
-        {
             return;
-        }
 
-        float distance = Vector3.Distance(character.position, hoop.position); 
+        float playerDistanceFromHoop = Vector3.Distance(character.position, hoop.position); 
 
-        if (distance > distanceThreshold) 
-        {
-            score = score + 3; 
-        }
+        if (playerDistanceFromHoop > distanceThreshold) 
+            score += 3; 
         else 
-        {
-            score = score + 2; 
-        }
+            score += 2; 
 
         scoreText.SetText(score.ToString());
-
         lastScoreTime = Time.time;
     }
    
     IEnumerator StopRoutine()
-    {
-        yield return leaderboard.SubmitScoreRoutine(score);
-    }
+        => leaderboard.SubmitScoreRoutine(score);
 }

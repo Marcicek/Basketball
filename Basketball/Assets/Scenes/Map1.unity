@@ -22845,7 +22845,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 980278906}
-  - component: {fileID: 980278905}
+  - component: {fileID: 980278907}
   m_Layer: 0
   m_Name: leaderboard
   m_TagString: Untagged
@@ -22853,18 +22853,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &980278905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 980278904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be4d14acfeb268943a3e55a9162e792b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &980278906
 Transform:
   m_ObjectHideFlags: 0
@@ -22880,6 +22868,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &980278907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980278904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355c93190d43215478cb9eb239b7b20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &982406412
 GameObject:
   m_ObjectHideFlags: 0
@@ -26615,7 +26615,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6b4735df3c936946a538c8a2acc6e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HostingGameObject: {fileID: 1268783220}
 --- !u!4 &1268783222
 Transform:
   m_ObjectHideFlags: 0
@@ -30419,7 +30418,7 @@ GameObject:
   - component: {fileID: 1535547446}
   - component: {fileID: 1535547445}
   m_Layer: 0
-  m_Name: player
+  m_Name: Player 1
   m_TagString: Opponent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30460,16 +30459,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e807112c9d63eae4595deceace805e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leaderboard: {fileID: 0}
-  MoveSpeed: 7
-  SprintMultiplier: 2
-  Ball: {fileID: 1946358635}
-  PosDribble: {fileID: 1058027414}
-  PosOverHead: {fileID: 992771332}
-  Arms: {fileID: 972439789}
-  Target: {fileID: 1977559486}
-  BounceForce: 500
-  ball: {fileID: 1946358636}
+  ball: {fileID: 1946358635}
+  posDribble: {fileID: 1058027414}
+  posOverHead: {fileID: 992771332}
+  arms: {fileID: 972439789}
+  hoop: {fileID: 1977559486}
+  leaderboard: {fileID: 980278907}
+  playerBall: {fileID: 1946358636}
+  moveSpeed: 10
+  sprintMultiplier: 2
+  bounceForce: 500
   MoveUpKey: 119
   MoveDownKey: 115
   MoveLeftKey: 97
@@ -30477,9 +30476,10 @@ MonoBehaviour:
   ShootKey: 118
   SprintKey: 304
   BlockKey: 116
-  StealKey: 114
-  BlockJumpHeight: 2
-  BlockDuration: 0.5
+  StealBallKey: 109
+  blockJumpHeight: 2
+  blockDuration: 0.5
+  distanceToStealBall: 2
 --- !u!4 &1535547447
 Transform:
   m_ObjectHideFlags: 0
@@ -35219,7 +35219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d0c038a26973d40baf728128af5dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leaderboard: {fileID: 980278905}
+  leaderboard: {fileID: 980278907}
   scoreText: {fileID: 106476573}
   hoop: {fileID: 330532389}
   character: {fileID: 1535547447}
@@ -35256,7 +35256,7 @@ GameObject:
   - component: {fileID: 1866599911}
   - component: {fileID: 1866599910}
   m_Layer: 0
-  m_Name: player
+  m_Name: Player 2
   m_TagString: Opponent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35297,26 +35297,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e807112c9d63eae4595deceace805e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leaderboard: {fileID: 0}
-  MoveSpeed: 7
-  SprintMultiplier: 2
-  Ball: {fileID: 1946358635}
-  PosDribble: {fileID: 725157100}
-  PosOverHead: {fileID: 2052151603}
-  Arms: {fileID: 1110583645}
-  Target: {fileID: 1977559486}
-  BounceForce: 500
-  ball: {fileID: 1946358636}
+  ball: {fileID: 1946358635}
+  posDribble: {fileID: 725157100}
+  posOverHead: {fileID: 2052151603}
+  arms: {fileID: 1110583645}
+  hoop: {fileID: 1977559486}
+  leaderboard: {fileID: 980278907}
+  playerBall: {fileID: 1946358636}
+  moveSpeed: 10
+  sprintMultiplier: 2
+  bounceForce: 500
   MoveUpKey: 273
   MoveDownKey: 274
   MoveLeftKey: 276
   MoveRightKey: 275
   ShootKey: 118
   SprintKey: 304
-  BlockKey: 116
-  StealKey: 127
-  BlockJumpHeight: 2
-  BlockDuration: 0.5
+  BlockKey: 47
+  StealBallKey: 109
+  blockJumpHeight: 2
+  blockDuration: 0.5
+  distanceToStealBall: 2
 --- !u!4 &1866599912
 Transform:
   m_ObjectHideFlags: 0

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using LootLocker.Requests;
+//using LootLocker.Requests;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour
     IEnumerator LoginRoutine()
     {
         bool done = false;
-        LootLockerSDKManager.StartGuestSession((response) =>
+        /*LootLockerSDKManager.StartGuestSession((response) =>
         {
             if (response.success)
             {
@@ -28,6 +28,7 @@ public class PlayerManager : MonoBehaviour
                 done = true;
             }
         });
+        */
 
         yield return new WaitWhile(() => done == false);
     }

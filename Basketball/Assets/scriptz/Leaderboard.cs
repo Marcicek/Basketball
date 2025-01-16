@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using LootLocker.Requests;
+// using LootLocker.Requests;
 
-public class Lboard : MonoBehaviour
+public class Leaderboard : MonoBehaviour
 {
     int leaderboardID = 25326; // Leaderboard ID zostáva int
 
@@ -19,7 +19,7 @@ public class Lboard : MonoBehaviour
         bool done = false;
 
         // Konverzia leaderboardID na string pri volaní metódy
-        LootLockerSDKManager.SubmitScore(playerID, scoreToUpload, leaderboardID.ToString(), (response) =>
+        /*LootLockerSDKManager.SubmitScore(playerID, scoreToUpload, leaderboardID.ToString(), (response) =>
         {
             if (response.success)
             {
@@ -30,7 +30,7 @@ public class Lboard : MonoBehaviour
                 Debug.LogError("Failed to upload score.");
             }
             done = true;
-        });
+        });*/
 
         // Poèkaj, kým sa proces odovzdania dokonèí
         yield return new WaitWhile(() => !done);

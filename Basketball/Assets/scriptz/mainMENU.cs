@@ -1,11 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class mainMENU : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
-    public GameObject mapSelectionUI; // Reference to the Map Selection UI
+    public GameObject mapSelectionUI;
 
     // Called when the "Play" button is clicked
     public void PlayGame()
@@ -21,21 +22,13 @@ public class mainMENU : MonoBehaviour
         mapSelectionUI.SetActive(false);
 
         // Load the selected map scene
-        switch (mapIndex)
+        if (SceneManager.GetSceneByName($"Map{mapIndex}") == null)
         {
-            case 1:
-                SceneManager.LoadScene("Map1"); // Replace "Map1" with your actual scene name
-                break;
-            case 2:
-                SceneManager.LoadScene("Map2"); // Replace "Map2" with your actual scene name
-                break;
-            case 3:
-                SceneManager.LoadScene("Map3"); // Replace "Map3" with your actual scene name
-                break;
-            default:
-                Debug.LogError("Invalid map index selected!");
-                break;
+            Debug.LogError("Invalid map index selected!");
+            return;
         }
+
+        SceneManager.LoadScene($"Map{mapIndex}");
     }
 
     public void QuitGame()
